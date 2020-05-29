@@ -1,1 +1,1 @@
-# pysherali_adams
+# sherali_adams
