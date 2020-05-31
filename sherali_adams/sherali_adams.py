@@ -164,6 +164,6 @@ def run_SA(k,n,A,b,memoize = False):
     tA = A
     tb = b
     for i in range(1,k+1):
-        (oldA,oldb) = get_SA_instance(i,n,oldA,oldb,look)
+        (tA,tb) = get_SA_instance(i,n,tA,tb,look)
     return (tA,tb)
     
