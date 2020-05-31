@@ -1,13 +1,14 @@
 from setuptools import setup
 
-def readme():
-    with open('README.md') as f:
-        return f.read()
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
     
 setup(name='sherali_adams',
       version='0.1',
       description='run k rounds of SA hierarchy',
-      long_description=readme(),
+      long_description=long_description,
+      long_description_content_type="text/markdown",
       keywords='integer programming mip sherali-adams optimization',
       url='http://github.com/knavely/sherali_adams',
       author='Matthew Drescher',
