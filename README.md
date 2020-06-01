@@ -16,8 +16,8 @@ OK
 ### Examples
 
 1. Run 1 round of SA on a system with 2 variables.  
-  ```A = np.matrix([1,1],[1,1])```
-   ```b = np.matrix([1,1])```
+  ```A = np.array([1,1],[1,1])```
+   ```b = np.array([1,1])```
    ```(AA,bb) = run_SA(1,2,A,b)```
 2. Find the original monomial corresponding to new variables. Here we find it for y_3 in the result above after 1 round of SA on a system with 2 variables.(0 based indexing)
   ``` monomial = invert(2,2,1)```
