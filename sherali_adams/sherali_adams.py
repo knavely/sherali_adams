@@ -121,7 +121,7 @@ def get_SA_instance(rnd,n,oldA,oldb, look = {}):
     (rows,cols) = oldA.shape
     oldN = cols
     newN = sum(map(lambda j:int(comb(n,j)),range(1,rnd+2)))    
-    newA = np.matrix(np.hstack([oldA, np.zeros((rows,newN - cols))]).tolist())
+    newA = np.array(np.hstack([oldA, np.zeros((rows,newN - cols))]).tolist())
 
     acc = []
     bacc = []
@@ -152,10 +152,10 @@ def get_SA_instance(rnd,n,oldA,oldb, look = {}):
         np.hstack([-np.eye(newN)])])
     hh3 = np.hstack([xxx_max, -xxx_min])
     
-    SA = np.matrix(np.asarray(list(itertools.chain(*acc))))
+    SA = np.array(np.asarray(list(itertools.chain(*acc))))
     Sb = np.asarray(list(itertools.chain(*bacc)))
 
-    return (np.matrix(np.vstack([newA,SA,GG3])), np.hstack([oldb,Sb,hh3]))
+    return (np.array(np.vstack([newA,SA,GG3])), np.hstack([oldb,Sb,hh3]))
 
 def run_SA(k,n,A,b,memoize = False):
     look = {}

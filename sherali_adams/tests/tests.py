@@ -36,7 +36,7 @@ class TestSA(TestCase):
         self.assertTrue(invert(30,5,4) == [0,1,2,3,4])
 
     def test_instance(self):
-        A = np.matrix([[-0., -1., -0., -1., -1.],
+        A = np.array([[-0., -1., -0., -1., -1.],
                        [ 1.,  0.,  0.,  0.,  0.],
                        [ 0.,  1.,  0.,  0.,  0.],
                        [ 0.,  0.,  1.,  0.,  0.],
@@ -55,7 +55,7 @@ class TestSA(TestCase):
 
 
     def test_runSA(self):
-        A = np.matrix([[-0., -1., -0., -1., -1.],
+        A = np.array([[-0., -1., -0., -1., -1.],
                        [ 1.,  0.,  0.,  0.,  0.],
                        [ 0.,  1.,  0.,  0.,  0.],
                        [ 0.,  0.,  1.,  0.,  0.],
@@ -73,11 +73,11 @@ class TestSA(TestCase):
         self.assertTrue(AA.shape == (1711,25))
 
     def test_2x2(self):
-        A = np.matrix([[1, 1],
+        A = np.array([[1, 1],
                        [1, 1]])
         b = np.array([1,1])
         (AA,bb) = run_SA(1,2,A,b)
-        expected = np.matrix([[ 1.,  1.,  0.],
+        expected = np.array([[ 1.,  1.,  0.],
                            [ 1.,  1.,  0.],
                            [ 0.,  0.,  1.],
                            [ 0.,  0.,  1.],
@@ -93,5 +93,6 @@ class TestSA(TestCase):
                            [-1., -0., -0.],
                            [-0., -1., -0.],
                            [-0., -0., -1.]])
-    
+
+        
         self.assertTrue((AA == expected).all())
