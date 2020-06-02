@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from sherali_adams.sherali_adams import * 
+from sherali_adams.sherali_adams import *
 import numpy as np
 
 class TestSA(TestCase):
@@ -47,7 +47,7 @@ class TestSA(TestCase):
                        [-0., -0., -1., -0., -0.],
                        [-0., -0., -0., -1., -0.],
                        [-0., -0., -0., -0., -1.]])
-        
+
         b = np.array([-1.,  1.,  1.,  1.,  1.,  1., -0., -0., -0., -0., -0.])
         (newA,newb) = get_SA_instance(1,5,A,b)
         self.assertTrue(newA.shape == (151,15))
@@ -66,10 +66,28 @@ class TestSA(TestCase):
                        [-0., -0., -1., -0., -0.],
                        [-0., -0., -0., -1., -0.],
                        [-0., -0., -0., -0., -1.]])
-        
+
         b = np.array([-1.,  1.,  1.,  1.,  1.,  1., -0., -0., -0., -0., -0.])
-        
+
         (AA,bb) = run_SA(2,5,A,b)
+        self.assertTrue(AA.shape == (1711,25))
+
+    def test_runSA_memoized(self):
+        A = np.array([[-0., -1., -0., -1., -1.],
+                       [ 1.,  0.,  0.,  0.,  0.],
+                       [ 0.,  1.,  0.,  0.,  0.],
+                       [ 0.,  0.,  1.,  0.,  0.],
+                       [ 0.,  0.,  0.,  1.,  0.],
+                       [ 0.,  0.,  0.,  0.,  1.],
+                       [-1., -0., -0., -0., -0.],
+                       [-0., -1., -0., -0., -0.],
+                       [-0., -0., -1., -0., -0.],
+                       [-0., -0., -0., -1., -0.],
+                       [-0., -0., -0., -0., -1.]])
+
+        b = np.array([-1.,  1.,  1.,  1.,  1.,  1., -0., -0., -0., -0., -0.])
+
+        (AA,bb) = run_SA(2,5,A,b,memoize=True)
         self.assertTrue(AA.shape == (1711,25))
 
     def test_2x2(self):
@@ -94,5 +112,5 @@ class TestSA(TestCase):
                            [-0., -1., -0.],
                            [-0., -0., -1.]])
 
-        
+
         self.assertTrue((AA == expected).all())
