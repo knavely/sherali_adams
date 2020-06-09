@@ -2,6 +2,8 @@
 A small library of functions with few dependencies to run k rounds of Sherali-Adams relaxation on a system of the form Ax <= b represented by raw numpy matrix A and array b.
 ## notes
 The constraints 0 <= y <= 1 will be added for all variables in the system returned. Send me a note if you'd like for this to be optional. 
+
+For a small instances (~7 variables) I recommend the default mode, for larger use memoized = True (it will be faster but use more memory).
 ## install
 ```
 pip install sherali_adams
