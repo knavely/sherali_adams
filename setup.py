@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
     
 setup(name='sherali_adams',
-      version='0.1',
+      version='0.2',
       description='run k rounds of SA hierarchy',
       long_description=long_description,
       long_description_content_type="text/markdown",

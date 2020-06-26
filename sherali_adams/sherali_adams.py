@@ -2,11 +2,6 @@
 Transforms a Polyhedron by running k rounds of Sherali-Adams hierarchy. """
 import numpy as np
 import itertools
-#from math import comb
-#from scipy.special import comb
-#from cvxopt import matrix
-#import sage
-#from sage.all import matrix
 from functools import reduce
 import operator as op
 
