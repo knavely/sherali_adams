@@ -78,7 +78,7 @@ def solve(A,b):
     n = col
     c = np.ones(col)
     lp = solvers.cvxopt.glpk.lp(matrix(c),matrix(A),matrix(b,tc='d'))
-    print(lp[1], sum(lp[1]))
+    #print(lp[1], sum(lp[1]))
     #(st,ip) = solvers.cvxopt.glpk.ilp(matrix(c),matrix(A),matrix(b,tc='d'), I = set(range(n)))
     #print(ip, sum(ip))
     (SA,sb) = sa.run_SA(1,n,A,b)
@@ -87,4 +87,4 @@ def solve(A,b):
 
 def run_queens(n):
     (A,b) = construct(n)
-    print solve(A,b)
+    print(solve(A,b))
